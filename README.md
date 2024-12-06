@@ -13,3 +13,7 @@ test tests::repro ... FAILED
 ```
 
 Removing the `gzip` feature from `reqwest` in `Cargo.toml` restores the correct behavior.
+
+This bug happens because the `reqwest` crate [automatically decompresses] gzipped responses when the `gzip` feature is enabled and removes the `Content-Length` header in the process. The `object_store` crate expects the `Content-Length` header to be present, so it errors when it is not.
+
+[automatically decompresses]: https://docs.rs/reqwest/latest/reqwest/struct.ClientBuilder.html#method.gzip
