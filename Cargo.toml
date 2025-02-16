@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 axum = "0.8.1"
 object_store = { version = "0.11.2", features = ["http"] }
-reqwest = { version = "0.12.9", features = ["gzip"] }
+reqwest = { version = "0.12.9", features = ["zstd"] }
 tokio = { version = "1.42.0", features = ["full"] }
 tower-http = { version = "0.6.2", features = ["compression-br", "compression-deflate", "compression-gzip", "compression-zstd"] }
 zstd = "0.13.2"
